@@ -5,20 +5,15 @@
   "version": "0.1",
   "description": "There may be no ethical consumption under late capitalism, but it doesn't hurt to try.",
   "browser_action": {
-    "default_icon": "Bells.png"
+    "default_icon": "Bells.png",
+    "default_popup": "index.html",
+    "default_title": "Open the popup!"
   },
   "icons": {
     "16": "Bells.png",
     "48": "Bells.png",
     "128": "Bells.png"
   },
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["scripts/jquery-3.4.1.slim.js", "scripts/content.js"]
-    }
-  ],
-  "background": {
-    "scripts": ["scripts/background.js"]
-  }
+  "permissions": ["contextMenus", "tabs"],
+  "web_accessible_resources": ["*.html"]
 }

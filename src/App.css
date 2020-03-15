@@ -6,6 +6,7 @@
   height: 100%;
   width: 100%;
 }
+
 .App-padding {
   height: 100%;
   padding: 0.8em;
@@ -20,7 +21,7 @@
   text-decoration: underline;
 }
 
-li:hover {
+.link:hover {
   cursor: pointer;
 }
 

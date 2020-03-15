@@ -1,6 +1,16 @@
 .App {
-  background-color: black;
+  background-color: #cd0000;
   color: whitesmoke;
   text-align: center;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Lato', sans-serif;
+  height: 100%;
+  width: 100%;
+}
+
+.link {
+  text-emphasis: underline;
+}
+
+.footer {
+  text-emphasis: italic;
 }

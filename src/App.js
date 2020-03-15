@@ -51,17 +51,7 @@ class App extends Component {
       <div className="App">
         <div className="App-padding">
           <h1 className="App-title">{this.state.domain}</h1>
-          {this.state.headlines.map(headline => (
-            <h4
-              className="link"
-              onClick={() => {
-                window.open(headline.url);
-              }}
-            >
-              {headline.title}
-            </h4>
-          ))}
-          <p className="footer">
+          <div className="selectText">
             You are now viewing
             <select value={this.state.issues} onChange={this.changeIssue}>
               <option value="labor">Labor Violations</option>
@@ -71,7 +61,29 @@ class App extends Component {
               <option value="dataSecurity">Data Security</option>
             </select>
             issues.
-          </p>
+          </div>
+          <div className="articles">
+            {this.state.headlines.map(headline => (
+              <div className="article">
+                <div
+                  className="link"
+                  onClick={() => {
+                    window.open(headline.url);
+                  }}
+                >
+                  {headline.title}
+                </div>
+                <div className="sourceWrapper">
+                  <div className="source">{headline.source.name}</div>
+                  <div>|</div>
+                  <div className="author">{headline.author}</div>
+                </div>
+                <div className="descriptionWrapper">
+                  <div className="description">{headline.description}</div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     );

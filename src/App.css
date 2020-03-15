@@ -1,9 +1,8 @@
 .App {
-  background-color: #cd0000;
   color: whitesmoke;
   text-align: center;
   font-family: 'Lato', sans-serif;
-  height: 100%;
+  height: fit-content;
   width: 100%;
 }
 
@@ -25,6 +24,6 @@
   cursor: pointer;
 }
 
-.footer {
+.selectText {
   text-emphasis: italic;
 }

@@ -6,9 +6,22 @@
   height: 100%;
   width: 100%;
 }
+.App-padding {
+  height: 100%;
+  padding: 0.8em;
+}
+
+.App-title {
+  margin: 0;
+}
 
 .link {
-  text-emphasis: underline;
+  font-size: 1.3em;
+  text-decoration: underline;
+}
+
+li:hover {
+  cursor: pointer;
 }
 
 .footer {

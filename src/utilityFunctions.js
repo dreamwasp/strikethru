@@ -1,6 +1,9 @@
 export const shortenAddress = address => {
-  address = address.slice(4);
-  const index = address.indexOf('.');
+  let index = address.indexOf('.');
+  if (index <= 4) {
+    address = address.slice(index + 1);
+  }
+  index = address.indexOf('.');
   address = address.slice(0, index);
   return address;
 };

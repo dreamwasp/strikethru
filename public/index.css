@@ -2,3 +2,8 @@ html {
   width: 25em;
   height: 50em;
 }
+
+body {
+  margin: 0;
+  height: 100%;
+}

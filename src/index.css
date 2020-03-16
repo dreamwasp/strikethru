@@ -1,5 +1,128 @@
 #root {
-  background-color: #cd0000;
-
+  background-color: #f3f3f3;
   height: 100%;
+}
+
+.App {
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  height: 100%;
+  width: 100%;
+}
+
+.App-padding {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.App-title {
+  margin: 0;
+}
+.articles {
+  padding: 1em;
+}
+.link {
+  font-size: 1.3em;
+  text-decoration: underline;
+  color: #cd0000;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: #fcba04;
+  cursor: pointer;
+}
+
+.selectTextContainer {
+  text-emphasis: italic;
+  background-color: #cd0000;
+  color: #f3f3f3;
+  font-size: 1.8em;
+  border: 0px;
+  width: 100%;
+}
+
+.selectText {
+  background-color: #cd0000;
+  color: #f3f3f3;
+  border: 0px;
+  font-size: 0.9em;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.selectText:hover {
+  color: #fcba04;
+  cursor: pointer;
+}
+
+.sourceWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 0.5em;
+}
+
+.descriptionWrapper {
+  margin-bottom: 0.5em;
+}
+
+.source {
+  font-style: italic;
+}
+
+.articles {
+  margin-top: 0.3em;
+}
+
+.article {
+  margin-bottom: 0.9em;
+}
+
+.description {
+  text-align: justify;
+  display: flex;
+}
+
+.addBar {
+  background-color: #cd0000;
+  color: #f3f3f3;
+  height: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputText {
+  background-color: #cd0000;
+  color: #f3f3f3;
+  border: 0;
+  border: 0px;
+  border-bottom: 1px solid;
+  padding: 0.3em;
+}
+
+.symbol {
+  color: #cd0000;
+  transition: color 0.2s ease;
+  margin-bottom: 1em;
+}
+
+.symbol:hover {
+  color: #fcba04;
+  cursor: pointer;
+}
+
+.addButton {
+  color: #f3f3f3;
+  border: 1px;
+  border-color: #f3f3f3;
+  background-color: #cd0000;
+  font-size: 2em;
+}
+
+.addButton:hover {
+  color: #fcba04;
+  cursor: pointer;
 }

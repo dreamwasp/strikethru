@@ -35,7 +35,6 @@
 }
 
 .selectTextContainer {
-  text-emphasis: italic;
   background-color: #cd0000;
   color: #f3f3f3;
   font-size: 1.8em;
@@ -125,4 +124,11 @@
 .addButton:hover {
   color: #fcba04;
   cursor: pointer;
+}
+
+#thanks {
+  display: flex;
+  justify-content: center;
+  padding: 1.8em;
+  font-style: italic;
 }

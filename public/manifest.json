@@ -14,6 +14,6 @@
     "48": "Bells.png",
     "128": "Bells.png"
   },
-  "permissions": ["contextMenus", "tabs", "storage"],
+  "permissions": ["tabs", "storage"],
   "web_accessible_resources": ["*.html"]
 }

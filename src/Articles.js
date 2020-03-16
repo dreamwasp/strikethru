@@ -2,6 +2,8 @@
 
 import React, { Component } from 'react';
 import { shortenAddress, uppercase, routeGetter } from './utilityFunctions';
+import { Footer } from './Footer';
+
 import './index.css';
 import axios from 'axios';
 
@@ -39,16 +41,6 @@ class Articles extends Component {
     });
   }
 
-  async getArticles(domain, currentIssue) {
-    try {
-      let route = routeGetter(domain, currentIssue);
-      let articles = await axios.get(route);
-      this.setState({ articles: articles.data.articles.slice(0, 5) });
-    } catch (err) {
-      console.log('There was an error retrieving the articles', err);
-    }
-  }
-
   async setStorageState() {
     let storage = await this.getStorageValue('issues');
     if (storage.issues.length > 0) {
@@ -66,6 +58,16 @@ class Articles extends Component {
         reject(ex);
       }
     });
+  }
+
+  async getArticles(domain, currentIssue) {
+    try {
+      let route = routeGetter(domain, currentIssue);
+      let articles = await axios.get(route);
+      this.setState({ articles: articles.data.articles.slice(0, 5) });
+    } catch (err) {
+      console.log('There was an error retrieving the articles', err);
+    }
   }
 
   handleChange(event) {
@@ -142,13 +144,7 @@ class Articles extends Component {
             +
           </button>
         </form>
-        <div id="thanks">
-          <p>
-            This app was built using the{' '}
-            <a href="https://newsapi.org"> News API</a>.
-          </p>
-        </div>
-        <div className="symbol">☭</div>
+        <Footer />
       </div>
     );
   }

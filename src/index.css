@@ -105,7 +105,6 @@
 .symbol {
   color: #cd0000;
   transition: color 0.2s ease;
-  margin-bottom: 1em;
 }
 
 .symbol:hover {

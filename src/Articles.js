@@ -130,7 +130,6 @@ class Articles extends Component {
             </div>
           ))}
         </div>
-        <div className="symbol">☭</div>
         <form className="addBar" onSubmit={this.handleSubmit}>
           I'd like to follow articles about...
           <input
@@ -149,6 +148,7 @@ class Articles extends Component {
             <a href="https://newsapi.org"> News API</a>.
           </p>
         </div>
+        <div className="symbol">☭</div>
       </div>
     );
   }

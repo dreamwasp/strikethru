@@ -79,7 +79,7 @@ class Articles extends Component {
     });
     try {
       await chrome.storage.sync.set({ issues: this.state.issues }, function() {
-        console.log('Value is set I think');
+        console.log('Values successfully set!');
       });
     } catch (err) {
       console.log(err);

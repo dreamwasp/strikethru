@@ -11,15 +11,8 @@ class Articles extends Component {
 
     this.state = {
       domain: '',
-      currentIssue: 'labor',
+      currentIssue: 'Labor Violations',
       issues: [
-        'labor',
-        'environment',
-        'humanRights',
-        'unethical',
-        'dataSecurity'
-      ],
-      issueText: [
         'Labor Violations',
         'Environmental Impact',
         'Human Rights Issues',
@@ -27,7 +20,7 @@ class Articles extends Component {
         'Data Security'
       ],
       toBeAdded: '',
-      headlines: []
+      articles: []
     };
     this.changeIssue = this.changeIssue.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -35,35 +28,62 @@ class Articles extends Component {
   }
 
   componentDidMount() {
+    this.setStorageState();
     chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
       const url = new URL(tabs[0].url);
       const domain = uppercase(shortenAddress(url.hostname));
       this.setState({
         domain: domain
       });
-      this.getHeadlines(domain, this.state.currentIssue);
+      this.getArticles(domain, this.state.currentIssue);
     });
   }
 
-  async getHeadlines(domain, currentIssue) {
+  async getArticles(domain, currentIssue) {
     try {
       let route = routeGetter(domain, currentIssue);
-      let headlines = await axios.get(route);
-      await this.setState({ headlines: headlines.data.articles.slice(0, 5) });
+      let articles = await axios.get(route);
+      this.setState({ articles: articles.data.articles.slice(0, 5) });
     } catch (err) {
       console.log('There was an error retrieving the articles', err);
     }
+  }
+
+  async setStorageState() {
+    let storage = await this.getStorageValue('issues');
+    if (storage.issues.length > ){
+      this.setState({ issues: storage.issues });
+    }
+  }
+
+  async getStorageValue(key) {
+    return new Promise((resolve, reject) => {
+      try {
+        chrome.storage.sync.get(key, function(value) {
+          resolve(value);
+        });
+      } catch (ex) {
+        reject(ex);
+      }
+    });
   }
 
   handleChange(event) {
     this.setState({ toBeAdded: event.target.value });
   }
 
-  handleSubmit(event) {
-    this.setState({
+  async handleSubmit(event) {
+    await this.setState({
       issues: [...this.state.issues, this.state.toBeAdded],
-      issueText: [...this.state.issueText, this.state.toBeAdded]
+      toBeAdded: ''
     });
+    try {
+      await chrome.storage.sync.set({ issues: this.state.issues }, function() {
+        console.log('Value is set I think');
+      });
+    } catch (err) {
+      console.log(err);
+    }
     event.preventDefault();
   }
 
@@ -71,7 +91,7 @@ class Articles extends Component {
     await this.setState({ currentIssue: event.target.value }, () => {
       console.log(this.state.currentIssue);
     });
-    await this.getHeadlines(this.state.domain, this.state.currentIssue);
+    await this.getArticles(this.state.domain, this.state.currentIssue);
   }
 
   render() {
@@ -84,30 +104,28 @@ class Articles extends Component {
             onChange={this.changeIssue}
             className="selectText"
           >
-            {this.state.issues.map((issue, index) => (
-              <option value={issue}>{this.state.issueText[index]}</option>
+            {this.state.issues.map(issue => (
+              <option value={issue}>{issue}</option>
             ))}
           </select>
         </div>
 
         <div className="articles">
-          {this.state.headlines.map(headline => (
+          {this.state.articles.map(article => (
             <div className="article">
               <div
                 className="link"
                 onClick={() => {
-                  window.open(headline.url);
+                  window.open(article.url);
                 }}
               >
-                {headline.title}
+                {article.title}
               </div>
               <div className="sourceWrapper">
                 <div className="descriptionWrapper">
-                  <div className="description">{headline.description}</div>
+                  <div className="description">{article.description}</div>
                 </div>
-                <div className="source">
-                  sourced from {headline.source.name}
-                </div>
+                <div className="source">sourced from {article.source.name}</div>
               </div>
             </div>
           ))}

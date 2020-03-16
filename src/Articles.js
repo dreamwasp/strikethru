@@ -51,7 +51,7 @@ class Articles extends Component {
 
   async setStorageState() {
     let storage = await this.getStorageValue('issues');
-    if (storage.issues.length > ){
+    if (storage.issues.length > 0) {
       this.setState({ issues: storage.issues });
     }
   }

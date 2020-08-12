@@ -1,10 +1,11 @@
 # strikethru
-
+![strikethru screenshot](https://cassie-spain.com/static/0805955a9f750e30633cbd65513f9ef9/ee604/amazon.png)
 strikethru is a Google Chrome plug-in that aggregates news data to help consumers make conscious buying decisions. Add custom issues to track the ones that are  pertinent to you across multiple websites and synced across your Chrome browsers.
+
 
 ## How To Install
 
-Fork this repo and run `git clone https://github.com/dreamwasp/strikethru/` in your terminal 
+Fork or clone this repo
 
 Navigate to `chrome://extensions/`
 

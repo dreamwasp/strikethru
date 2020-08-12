@@ -1,5 +1,5 @@
 {
-  "name": "general-strike",
+  "name": "strikethru",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,7 +9,7 @@
     "axios": "^0.19.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
-    "react-scripts": "3.4.0"
+    "react-scripts": "^3.4.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -34,7 +34,6 @@
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
-    "babel-loader": "^8.0.6",
     "babel-preset-env": "^1.7.0",
     "style-loader": "^1.1.3"
   }

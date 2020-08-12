@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import './index.css';
-import Articles from './Articles';
+import React, { Component } from "react";
+import "./index.css";
+import Articles from "./Articles";
 
 class App extends Component {
   render() {
@@ -11,4 +11,5 @@ class App extends Component {
     );
   }
 }
+
 export default App;

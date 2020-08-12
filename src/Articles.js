@@ -1,28 +1,27 @@
 /* global chrome */
 
-import React, { Component } from 'react';
-import { shortenAddress, uppercase, routeGetter } from './utilityFunctions';
-import { Footer } from './Footer';
+import React, { Component } from "react";
+import { shortenAddress, uppercase, routeGetter } from "./utilityFunctions";
+import { Footer } from "./Footer";
 
-import './index.css';
-import axios from 'axios';
+import "./index.css";
+import axios from "axios";
 
 class Articles extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      domain: '',
-      currentIssue: 'Labor Violations',
+      domain: "",
+      currentIssue: "Labor Violations",
       issues: [
-        'Labor Violations',
-        'Environmental Impact',
-        'Human Rights Issues',
-        'Business Practices',
-        'Data Security'
+        "Labor Violations",
+        "Environmental Impact",
+        "Human Rights Issues",
+        "Business Practices",
       ],
-      toBeAdded: '',
-      articles: []
+      toBeAdded: "",
+      articles: [],
     };
     this.changeIssue = this.changeIssue.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -31,18 +30,18 @@ class Articles extends Component {
 
   componentDidMount() {
     this.setStorageState();
-    chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
       const url = new URL(tabs[0].url);
       const domain = uppercase(shortenAddress(url.hostname));
       this.setState({
-        domain: domain
+        domain: domain,
       });
       this.getArticles(domain, this.state.currentIssue);
     });
   }
 
   async setStorageState() {
-    let storage = await this.getStorageValue('issues');
+    let storage = await this.getStorageValue("issues");
     if (storage.issues.length > 0) {
       this.setState({ issues: storage.issues });
     }
@@ -51,7 +50,7 @@ class Articles extends Component {
   async getStorageValue(key) {
     return new Promise((resolve, reject) => {
       try {
-        chrome.storage.sync.get(key, function(value) {
+        chrome.storage.sync.get(key, function (value) {
           resolve(value);
         });
       } catch (ex) {
@@ -65,8 +64,9 @@ class Articles extends Component {
       let route = routeGetter(domain, currentIssue);
       let articles = await axios.get(route);
       this.setState({ articles: articles.data.articles.slice(0, 5) });
+      console.log(articles);
     } catch (err) {
-      console.log('There was an error retrieving the articles', err);
+      console.log("There was an error retrieving the articles", err);
     }
   }
 
@@ -75,18 +75,23 @@ class Articles extends Component {
   }
 
   async handleSubmit(event) {
-    await this.setState({
-      issues: [...this.state.issues, this.state.toBeAdded],
-      toBeAdded: ''
-    });
-    try {
-      await chrome.storage.sync.set({ issues: this.state.issues }, function() {
-        console.log('Values successfully set!');
+    if (this.state.toBeAdded.length > 0) {
+      await this.setState({
+        issues: [...this.state.issues, this.state.toBeAdded],
+        toBeAdded: "",
       });
-    } catch (err) {
-      console.log(err);
+      try {
+        await chrome.storage.sync.set(
+          { issues: this.state.issues },
+          function () {
+            console.log("Values successfully set!");
+          }
+        );
+      } catch (err) {
+        console.log(err);
+      }
+      event.preventDefault();
     }
-    event.preventDefault();
   }
 
   async changeIssue(event) {
@@ -106,14 +111,14 @@ class Articles extends Component {
             onChange={this.changeIssue}
             className="selectText"
           >
-            {this.state.issues.map(issue => (
+            {this.state.issues.map((issue) => (
               <option value={issue}>{issue}</option>
             ))}
           </select>
         </div>
 
         <div className="articles">
-          {this.state.articles.map(article => (
+          {this.state.articles.map((article) => (
             <div className="article">
               <div
                 className="link"

@@ -1,5 +1,4 @@
 # strikethru
-![strike-thru screenshot](http://placehold.it/image.jpeg){:style="float: right;margin-right: 7px;margin-top: 7px;"}
 
 strikethru is a Google Chrome plug-in that aggregates news data to help consumers make conscious buying decisions. Add custom issues to track the ones that are  pertinent to you across multiple websites and synced across your Chrome browsers.
 

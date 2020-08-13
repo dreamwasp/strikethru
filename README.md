@@ -11,6 +11,7 @@ strikethru is currently in the review process before it debuts in the Google Chr
 
  - Clone or fork this repository
  - Once downloaded, navigate to the appropriate folder in your terminal, then run `npm install'
+ - You will need an API Key from the [GNews API](https://https://gnews.io/), which you can get for free [here](https://https://gnews.io/#pricing) after creating an account. Create an "apiKey.js" file within your search folder, and export the api key from there
  - Run `npm run-scripts build`
  - You should now see a `build` folder in the directory
  - Open up Google Chrome, navigate to `Settings` > `Extensions` and make sure Developer (in the top right corner) is switched on

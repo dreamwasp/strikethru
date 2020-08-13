@@ -1,6 +1,18 @@
 # strikethru
+![strikethru gif](https://i.imgur.com/VLGfFgR.mp4)
 
 strikethru is a Google Chrome plug-in that aggregates news data to help consumers make conscious buying decisions. Add custom issues to track the ones that are pertinent to you across multiple websites and synced across your Chrome browsers.
+
+
+## To Install
+
+strikethru is currently in the review process before it debuts in the Google Chrome store! If you just can't wait, you can download it by:
+
+ - Clone or fork this repository
+ - Once downloaded, navigate to the appropriate folder in your terminal, then run `npm install'
+ - Run `npm run-scripts build`
+
+
 
 ## Features currently in development
 

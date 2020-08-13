@@ -7,7 +7,7 @@ export const URL = {
 };
 
 export const search = {
-  "Labor Violations": "labor",
+  "Labor Violations": "labor%20violations",
   "Environmental Impact": "environmental%20impact",
   "Human Rights Issues": "human%20rights",
   "Business Practices": "unethical",

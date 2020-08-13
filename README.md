@@ -12,7 +12,10 @@ strikethru is currently in the review process before it debuts in the Google Chr
  - Clone or fork this repository
  - Once downloaded, navigate to the appropriate folder in your terminal, then run `npm install'
  - Run `npm run-scripts build`
-
+ - You should now see a `build` folder in the directory
+ - Open up Google Chrome, navigate to `Settings` > `Extensions` and make sure Developer (in the top right corner) is switched on
+ - Click `Load unpack` and then upload the build folder.
+ - You are good to go!
 
 
 ## Features currently in development

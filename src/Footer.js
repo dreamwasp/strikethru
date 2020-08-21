@@ -2,10 +2,18 @@ import React from "react";
 
 export const Footer = () => {
   return (
-    <div id="thanks">
+    <div className="thanks">
       <p>
         This app was built using the{" "}
-        <a href="https://https://gnews.io/">GNews API</a>.
+        <span
+          className="smallLink"
+          onClick={() => {
+            window.open("https://gnews.io/");
+          }}
+        >
+          GNews API
+        </span>
+        .
       </p>
       <div className="symbol">☭</div>
     </div>

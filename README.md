@@ -1,13 +1,11 @@
 # strikethru
+strikethru is a Google Chrome plug-in that aggregates news data to help consumers make conscious buying decisions. It is available on the [Google Chrome Store](https://chrome.google.com/webstore/detail/strikethru/iiddfdfnhogoilpammecdbbcnaambjid?hl=en&authuser=3). Add custom issues to track the ones that are pertinent to you across multiple websites and synced across your Chrome browsers!
 
 ![strikethru screenshot](https://i.imgur.com/pa7CpSX.png)
 
-strikethru is a Google Chrome plug-in that aggregates news data to help consumers make conscious buying decisions. Add custom issues to track the ones that are pertinent to you across multiple websites and synced across your Chrome browsers.
-
 
 ## To Install
-
-strikethru is currently in the review process before it debuts in the Google Chrome store! If you just can't wait, you can download it by:
+If you'd like to install strikethru on your local machine:
 
  - Clone or fork this repository
  - Once downloaded, navigate to the appropriate folder in your terminal, then run `npm install'
@@ -18,9 +16,7 @@ strikethru is currently in the review process before it debuts in the Google Chr
  - Click `Load unpack` and then upload the build folder.
  - You are good to go!
 
-
 ## Features currently in development
-
 - an internally-built webscraper for vetted new sources
 - an alert system for if a user navigates to the website of a company that is currently on strike, has a major enviromental violation, etc.
 - a machine-learning algorithm to quantify a company's "grade" for each "out-of-the-box" category

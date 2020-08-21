@@ -5,7 +5,7 @@ strikethru is a [Google Chrome plug-in](https://chrome.google.com/webstore/detai
 
 
 ## To Install
-strikethru is availible for download through the [Google Chrome Store](https://chrome.google.com/webstore/detail/strikethru/iiddfdfnhogoilpammecdbbcnaambjid?hl=en&authuser=3)! If you'd like to install strikethru on your local machine:
+strikethru is available for download through the [Google Chrome Store](https://chrome.google.com/webstore/detail/strikethru/iiddfdfnhogoilpammecdbbcnaambjid?hl=en&authuser=3)! If you'd like to install strikethru on your local machine:
 
  - Clone or fork this repository
  - Once downloaded, navigate to the appropriate folder in your terminal, then run `npm install'

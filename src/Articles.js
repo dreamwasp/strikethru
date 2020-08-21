@@ -26,6 +26,7 @@ class Articles extends Component {
     this.changeIssue = this.changeIssue.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.articleRenderer = this.articleRenderer.bind(this);
   }
 
   componentDidMount() {
@@ -64,7 +65,6 @@ class Articles extends Component {
       let route = routeGetter(domain, currentIssue);
       let articles = await axios.get(route);
       this.setState({ articles: articles.data.articles.slice(0, 5) });
-      console.log(articles);
     } catch (err) {
       console.log("There was an error retrieving the articles", err);
     }
@@ -101,6 +101,35 @@ class Articles extends Component {
     await this.getArticles(this.state.domain, this.state.currentIssue);
   }
 
+  articleRenderer(articles) {
+    if (articles < 1) {
+      return (
+        <div className="noArticle">
+          It looks like no articles were found. Try a different issue?
+        </div>
+      );
+    } else {
+      return articles.map((article) => (
+        <div className="article">
+          <div
+            className="link"
+            onClick={() => {
+              window.open(article.url);
+            }}
+          >
+            {article.title}
+          </div>
+          <div className="sourceWrapper">
+            <div className="descriptionWrapper">
+              <div className="description">{article.description}</div>
+            </div>
+            <div className="source">sourced from {article.source.name}</div>
+          </div>
+        </div>
+      ));
+    }
+  }
+
   render() {
     return (
       <div className="App-padding">
@@ -118,24 +147,7 @@ class Articles extends Component {
         </div>
 
         <div className="articles">
-          {this.state.articles.map((article) => (
-            <div className="article">
-              <div
-                className="link"
-                onClick={() => {
-                  window.open(article.url);
-                }}
-              >
-                {article.title}
-              </div>
-              <div className="sourceWrapper">
-                <div className="descriptionWrapper">
-                  <div className="description">{article.description}</div>
-                </div>
-                <div className="source">sourced from {article.source.name}</div>
-              </div>
-            </div>
-          ))}
+          {this.articleRenderer(this.state.articles)}
         </div>
         <form className="addBar" onSubmit={this.handleSubmit}>
           I'd like to follow articles about...

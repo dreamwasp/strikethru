@@ -80,6 +80,11 @@
   margin-bottom: 0.9em;
 }
 
+.noArticle {
+  font-size: 1.2em;
+  color: #cd0000;
+}
+
 .description {
   text-align: justify;
   display: flex;
